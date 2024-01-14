@@ -9,9 +9,8 @@ import {
   DialogDescription,
   DialogTitle,
   DialogTrigger,
-} from "@radix-ui/react-dialog";
+} from "@/components/ui/dialog";
 import {
-  Label,
   Select,
   SelectContent,
   SelectLabel,
@@ -19,9 +18,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@radix-ui/react-select";
+} from "@/components/ui/select";
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
+import { Label } from "@/components/ui/label";
 
 export const AddTodo = () => {
   const [task, setTask] = useState("");
@@ -30,7 +30,7 @@ export const AddTodo = () => {
 
   const [addTodo] = useAddTodosMutation();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const taskData = {
       task: task,
@@ -96,7 +96,10 @@ export const AddTodo = () => {
               </Select>
             </div>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-end gap-6">
+            <DialogClose asChild>
+              <Button className="bg-red-gradient mb-2">Cancel</Button>
+            </DialogClose>
             <DialogClose asChild>
               <Button type="submit" className="bg-primary-gradient mb-2">
                 Add Task
