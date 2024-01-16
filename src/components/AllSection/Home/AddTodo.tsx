@@ -19,9 +19,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
-import { Label } from "@/components/ui/label";
 
 export const AddTodo = () => {
   const [task, setTask] = useState("");
